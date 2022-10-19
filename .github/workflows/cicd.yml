@@ -29,4 +29,9 @@ jobs:
     - name: 🤖 Tests - 🧪 Unit - 🔌 Integration - 👩🏻‍💻 E2E
       run: |
         pipenv run coverageAzureDevOps
-    
+
+    - name: 🗞 Publish Test Report
+        uses: mikepenz/action-junit-report@v3
+        if: always() # always run even if the previous step fails
+        with:
+          report_paths: '**/build/test-results/test/TEST-*.xml'
