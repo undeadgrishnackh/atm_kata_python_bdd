@@ -14,6 +14,4 @@ def withdrawn(amount_to_withdraw):
         notes_count += amount // note
         amount = amount - note * (amount // note)
 
-    if amount > 0:
-        return 0
-    return notes_count
+    return 0 if amount > 0 else notes_count
